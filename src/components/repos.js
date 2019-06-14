@@ -2,11 +2,15 @@
 
 import React from 'react'
 
-const Repos = ({ className }) => (
+const Repos = ({ className, title, repos }) => (
   <div className={className}>
-    <h2>Repositórios:</h2>
+    <h2>{title}:</h2>
     <ul>
-      <li><a href='#'>Nome do repositório</a></li>
+      {
+        repos.map((repo, index) => (
+          <li key={index}><a href={repo.link}>{repo.name}</a></li>
+        ))
+      }
     </ul>
   </div>
 )
