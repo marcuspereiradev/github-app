@@ -17,13 +17,15 @@ const App = () => (
         name: 'Nome do repositório',
         link: '#'
       }]}
-      />
-      <div className='starred'>
-        <h2>Favoritos:</h2>
-        <ul>
-          <li><a href='#'>Nome do repositório</a></li>
-        </ul>
-      </div>
+    />
+    <Repos className='starred'
+      title='Favoritos'
+      repos={[{
+        name: 'Nome do repositório',
+        link: '#'
+      }]}
+    />
+      
   </div>
 )
 
