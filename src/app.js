@@ -2,17 +2,16 @@
 
 import React from 'react'
 import Search from './components/search'
-import UserInfo from './components/user-info';
+import UserInfo from './components/user-info'
+import Actions from './components/actions'
 
 const App = () => (
   <div className='app'>
     <Search />
     <UserInfo />
+    <Actions />
 
-    <div className='actions'>
-        <button>Ver repositórios</button>
-        <button>Ver favoritos</button>
-      </div>
+    
 
       <div className='repos'>
         <h2>Repositórios:</h2>
