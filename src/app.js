@@ -12,27 +12,31 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      userinfo: {
-        following: 300000,
-        followers: 1000,
-        login: 'marcuspereiradev',
-        photo: 'https://avatars1.githubusercontent.com/u/30603440?v=4',
-        repos: 100,
-        username: 'Marcus Pereira'
-      },
+      userinfo: null,
       repos: [],
       starred: []
     }
   }
 
-  handleUsers = (event) => {
+  handleSearch = (event) => {
     const user = event.target.value
     const keyCode = event.keyCode
     const enter = 13
 
     if (keyCode === enter) {
       ajax().get(`https://api.github.com/users/${user}`)
-        .then((data) => console.log(data))
+        .then((data) => {
+          this.setState({
+            userinfo: {
+              following: data.following,
+              followers: data.followers,
+              login: data.login,
+              photo: data.avatar_url,
+              repos: data.public_repos,
+              username: data.name
+            }
+          })
+        })
     }
   }
 
@@ -41,7 +45,7 @@ class App extends Component {
       userinfo={this.state.userinfo}
       repos={this.state.repos}
       starred={this.state.starred}
-      handleUsers={this.handleUsers}
+      handleSearch={this.handleSearch}
     />
   }
 }
