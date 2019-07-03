@@ -8,12 +8,18 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-
+      userinfo: null,
+      repos: [],
+      starred: []
     }
   }
 
   render() {
-    return <AppContent />
+    return <AppContent
+      userinfo={this.state.userinfo}
+      repos={this.state.repos}
+      starred={this.state.starred}
+    />
   }
 }
 
