@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  width: 30%;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+}
+
+.search input{
+  display: block;
+  font-size: 1.5em;
+  margin: 20px 0;
+  padding: 20px;
+  width: 100%;
+}
+
+.user-info {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.user-info-content {
+  margin-left: 20px;
+}
+
+.respos-info {
+  list-style: none;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.actions button {
+  font-size: 1.5em;
+  padding: 10px 30px;
+  width: 300px;
+}
+
+.repos li, .starred li {
+  list-style: none;
+  padding: 20px;
+}
