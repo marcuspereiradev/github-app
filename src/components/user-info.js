@@ -9,7 +9,7 @@ const UserInfo = ({ userinfo }) => (
     <div className='user-info-content'>
       <h1><a href={`https://github.com/${userinfo.login}`} target='_blank'>{userinfo.username}</a></h1>
 
-      <ul className='respos-info'>
+      <ul className='respos-user-info'>
         <li>Repositórios: {userinfo.repos}</li>
         <li>Seguidores: {userinfo.followers}</li>
         <li>Seguindo: {userinfo.following}</li>
