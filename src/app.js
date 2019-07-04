@@ -34,7 +34,22 @@ class App extends Component {
               photo: data.avatar_url,
               repos: data.public_repos,
               username: data.name
-            }
+            },
+            repos: [],
+            starred: []
+          })
+        })
+    }
+  }
+
+  getReposStarred = (type) => {
+    return (event) => {
+      event.preventDefault()
+
+      ajax().get(`https://api.github.com/users/${this.state.userinfo.login}/${type}`)
+        .then((data) => {
+          this.setState({
+            [type]: data
           })
         })
     }
@@ -46,6 +61,8 @@ class App extends Component {
       repos={this.state.repos}
       starred={this.state.starred}
       handleSearch={this.handleSearch}
+      getRepos={this.getReposStarred('repos')}
+      getStarred={this.getReposStarred('starred')}
     />
   }
 }
