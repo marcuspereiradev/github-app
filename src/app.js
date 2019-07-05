@@ -28,8 +28,11 @@ class App extends Component {
     const user = event.target.value
     const keyCode = event.keyCode
     const enter = 13
+    const target = event.target
 
     if (keyCode === enter) {
+      target.disabled = true
+
       ajax().get(this.getGithubApiUrl(user))
         .then((data) => {
           this.setState({
@@ -44,6 +47,9 @@ class App extends Component {
             repos: [],
             starred: []
           })
+        })
+        .always(() => {
+          target.disabled = false
         })
     }
   }
